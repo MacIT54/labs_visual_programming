@@ -1,0 +1,117 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:lab3="clr-namespace:lab3"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="lab3.MainWindow"
+        x:DataType="lab3:Calculator"
+        Title="lab3"
+        Width="550"
+        Height="500"
+        MinHeight="550"
+        MinWidth="500"
+        MaxHeight="550"
+        MaxWidth="500">
+     <Window.DataContext>
+        <lab3:Calculator/>
+    </Window.DataContext>
+
+    <!--<Grid>
+        
+        <TextBlock Name="displayTextBlock" Text="{Binding CurrentInput, Mode=OneWay}" FontSize="30" Margin="5" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,80,60,0">
+            <StackPanel Orientation="Horizontal">
+                <Button Content="1" Command="{Binding HandleNumberInput}" CommandParameter="1" FontSize="40" Width="100" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"/>
+                <Button Content="2" Command="{Binding HandleNumberInput}" CommandParameter="2" FontSize="40" Width="100" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"/>
+                <Button Content="3" Command="{Binding HandleNumberInput}" CommandParameter="3" FontSize="40" Width="100" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"/>
+                <Button Content="←" Command="{Binding HandleBackspaceInput}" FontSize="40" Width="100" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"/>
+            </StackPanel>
+            
+            <StackPanel Orientation="Horizontal">
+                <Button Content="4" Command="{Binding HandleNumberInput}" CommandParameter="4" FontSize="40" Width="100" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"/>
+                <Button Content="5" Command="{Binding HandleNumberInput}" CommandParameter="5" FontSize="40" Width="100" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"/>
+                <Button Content="6" Command="{Binding HandleNumberInput}" CommandParameter="6" FontSize="40" Width="100" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"/>
+                <Button Content="+" Command="{Binding HandleOperatorInput}" CommandParameter="+" FontSize="40" Width="100" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"/>
+            </StackPanel>
+            
+            <StackPanel Orientation="Horizontal">
+                <Button Content="7" Command="{Binding HandleNumberInput}" CommandParameter="7" FontSize="40" Width="100" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"/>
+                <Button Content="8" Command="{Binding HandleNumberInput}" CommandParameter="8" FontSize="40" Width="100" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"/>
+                <Button Content="9" Command="{Binding HandleNumberInput}" CommandParameter="9" FontSize="40" Width="100" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"/>
+                <Button Content="-" Command="{Binding HandleOperatorInput}" CommandParameter="-" FontSize="40" Width="100" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"/>
+            </StackPanel>
+            
+            <StackPanel Orientation="Horizontal">
+                <Button Content="C" Command="{Binding HandleClearInput}" FontSize="40" Width="100" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"/>
+                <Button Content="0" Command="{Binding HandleNumberInput}" CommandParameter="0" FontSize="40" Width="100" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"/>
+                <Button Content="," Command="{Binding HandleCommaInput}" FontSize="23" Height = "60" Width="100"/>
+                <Button Content="*" Command="{Binding HandleOperatorInput}" CommandParameter="*" FontSize="40" Width="100" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Button Content="x^y" Command="{Binding HandlePowerFunction}" FontSize="30" Height = "60" Width="100" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"/>
+                <Button Content="lg" Command="{Binding HandleLogFunction}" FontSize="40" Width="100" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"/>
+                <Button Content="ln" Command="{Binding HandleLnFunction}" FontSize="40" Width="100" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"/>
+                <Button Content="/" Command="{Binding HandleOperatorInput}" CommandParameter="/" FontSize="40" Width="100" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Button Content="sin" Command="{Binding HandleSinFunction}" FontSize="30" Width="100" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"/>
+                <Button Content="cos" Command="{Binding HandleCosFunction}" FontSize="30" Width="100" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"/>
+                <Button Content="tan" Command="{Binding HandleTanFunction}" FontSize="30" Width="100" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"/>
+                <Button Content="ceil" Command="{Binding HandleCeilFunction}" FontSize="30" Width="100" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Button Content="n!" Command="{Binding HandleFactorialFunction}" FontSize="25" Height="60" Width="150" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"/>
+                <Button Content="mod" Command="{Binding HandleModFunction}" FontSize="25" Height="60" Width="150" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"/>
+                <Button Content="floor" Command="{Binding HandleFloorFunction}" FontSize="25" Height="60" Width="100" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Button Content="=" Command="{Binding HandleEqualsInput}" FontSize="40" Width="400" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>-->
+    <StackPanel>
+<Grid ColumnDefinitions="70, 70, 70, 70, 70, 70, 70" RowDefinitions="70, 70, 70, 70, 70, 70" Margin="10">
+	<Border Grid.ColumnSpan="6" BorderThickness="3" BorderBrush="Blue">
+		<TextBlock Name="displayTextBlock" Text="{Binding CurrentInput, Mode=OneWay}" FontSize="30" Margin="5" HorizontalAlignment="Right" VerticalAlignment="Top"></TextBlock>
+	</Border>
+	
+			<Button Grid.Column="0" Grid.Row="1" Content="n!" Command="{Binding HandleFactorialFunction}" Width="70" Height="70" Margin="5" />
+			<Button Grid.Column="1" Grid.Row="1" Content="mod" Command="{Binding HandleModFunction}" Width="70" Height="70" Margin="5" />
+			<Button Grid.Column="2" Grid.Row="1" Content="floor" Command="{Binding HandleFloorFunction}" Width="70" Height="70" Margin="5" />
+			<Button Grid.Column="3" Grid.Row="1" Content="ceil" Command="{Binding HandleCeilFunction}" Width="70" Height="70" Margin="5" />
+			<Button Grid.Column="4" Grid.Row="1" Content="Bs" Command="{Binding HandleBackspaceInput}" Background="Khaki" Width="70" Height="70" Margin="5" />
+			<Button Grid.Column="5" Grid.Row="1" Content="Clear" Command="{Binding HandleClearInput}" Background="Khaki" Width="70" Height="70" Margin="5" />
+
+			<Button Grid.Column="0" Grid.Row="2" Content="7" Command="{Binding HandleNumberInput}"  CommandParameter="7" Width="70" Height="70" Margin="5" />
+			<Button Grid.Column="1" Grid.Row="2" Content="8" Command="{Binding HandleNumberInput}"  CommandParameter="8" Width="70" Height="70" Margin="5" />
+			<Button Grid.Column="2" Grid.Row="2" Content="9" Command="{Binding HandleNumberInput}"  CommandParameter="9" Width="70" Height="70" Margin="5" />
+			<Button Grid.Column="3" Grid.Row="2" Content="+" Command="{Binding HandleOperatorInput}"  CommandParameter="+" Width="70" Height="70" Margin="5" />
+			<Button Grid.Column="4" Grid.Row="2" Content="-" Command="{Binding HandleOperatorInput}" CommandParameter="-"  Width="70" Height="70" Margin="5" />
+			<Button Grid.Column="5" Grid.Row="2" Content="*" Command="{Binding HandleOperatorInput}" CommandParameter="*"  Width="70" Height="70" Margin="5" />
+	
+			<Button Grid.Column="0" Grid.Row="3" Content="4" Command="{Binding HandleNumberInput}"  CommandParameter="4" Width="70" Height="70" Margin="5" />
+			<Button Grid.Column="1" Grid.Row="3" Content="5" Command="{Binding HandleNumberInput}"  CommandParameter="5" Width="70" Height="70" Margin="5" />
+			<Button Grid.Column="2" Grid.Row="3" Content="6" Command="{Binding HandleNumberInput}"  CommandParameter="6" Width="70" Height="70" Margin="5" />
+			<Button Grid.Column="3" Grid.Row="3" Content="sin" Command="{Binding HandleSinFunction}" Width="70" Height="70" Margin="5" />
+			<Button Grid.Column="4" Grid.Row="3" Content="cos" Command="{Binding HandleCosFunction}" Width="70" Height="70" Margin="5" />
+			<Button Grid.Column="5" Grid.Row="3" Content="tan" Command="{Binding HandleTanFunction}" Width="70" Height="70" Margin="5" />
+		
+			<Button Grid.Column="0" Grid.Row="4" Content="1" Command="{Binding HandleNumberInput}"  CommandParameter="1" Width="70" Height="70" Margin="5" />
+			<Button Grid.Column="1" Grid.Row="4" Content="2" Command="{Binding HandleNumberInput}"  CommandParameter="2" Width="70" Height="70" Margin="5" />
+			<Button Grid.Column="2" Grid.Row="4" Content="3" Command="{Binding HandleNumberInput}"  CommandParameter="3" Width="70" Height="70" Margin="5" />
+			<Button Grid.Column="3" Grid.Row="4" Content="x^y" Command="{Binding HandlePowerFunction}" Width="70" Height="70" Margin="5" />
+			<Button Grid.Column="4" Grid.Row="4" Content="lg" Command="{Binding HandleLogFunction}" Width="70" Height="70" Margin="5" />
+			<Button Grid.Column="5" Grid.Row="4" Content="ln" Command="{Binding HandleLnFunction}" Width="70" Height="70" Margin="5" />
+		
+			
+			<Button Grid.Column="0" Grid.Row="5" Content="0" Command="{Binding HandleNumberInput}" Width="150" Height="70" Margin="5" />
+			<Button Grid.Column="2" Grid.Row="5" Content="," Command="{Binding HandleCommaInput}" Width="70" Height="70" Margin="5" />
+			<Button Grid.Column="3" Grid.Row="5" Content="/" Command="{Binding HandleOperatorInput}" CommandParameter="/"  Width="70" Height="70" Margin="5" />
+			<Button Grid.Column="4" Grid.Row="5" Content="=" Command="{Binding HandleEqualsInput}" Background="Khaki" Width="150" Height="70" Margin="5" />
+	
+</Grid>
+</StackPanel>
+    
+</Window>
