@@ -1,0 +1,26 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:lab4Visual="clr-namespace:Lab4Visual"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="Lab4Visual.MainWindow"
+        Title="Lab4Visual"
+        x:DataType="lab4Visual:FileExplorer"
+        Width="600"
+        Height="700">
+    <Window.DataContext>
+        <lab4Visual:FileExplorer/>
+    </Window.DataContext>
+
+    <ListBox ItemsSource="{Binding Items}" DoubleTapped="TappedListBox">
+        <ListBox.ItemTemplate>
+            <DataTemplate>
+                <StackPanel Orientation="Horizontal">
+                    <Image Width="40" Height="40" Margin="0,0,15,0" Source="{Binding Icon}"/>
+                    <TextBlock Text="{Binding Name}" VerticalAlignment="Center"/>
+                </StackPanel>
+            </DataTemplate>
+        </ListBox.ItemTemplate>
+    </ListBox>
+</Window>
