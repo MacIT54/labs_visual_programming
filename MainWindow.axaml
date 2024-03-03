@@ -1,0 +1,30 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab4Visual"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="Lab4Visual.MainWindow"
+        Title="File Explorer"
+        x:DataType="local:FileExplorer">
+    
+    <Window.DataContext>
+        <local:FileExplorer/>
+    </Window.DataContext>
+    
+<Grid ColumnDefinitions="0.33*, 0.001*, 0.66*">
+    <ListBox ItemsSource="{Binding Items}" Tapped="TappedImage" DoubleTapped="TappedListBox">
+        <ListBox.ItemTemplate>
+            <DataTemplate>
+                <StackPanel ToolTip.Tip="{Binding Path}"  Orientation="Horizontal">
+                    <Image Width="30" Height="30" Margin="0,0,10,0" Source="{Binding Icon}"/>
+                    <TextBlock Text="{Binding Name}" VerticalAlignment="Center"/>
+                </StackPanel>
+            </DataTemplate>
+        </ListBox.ItemTemplate>
+
+    </ListBox>
+    <Image Grid.Column="2" Source="{Binding SelectedItemImage}"></Image>
+    </Grid>
+    
+</Window>
