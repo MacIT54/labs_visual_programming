@@ -1,0 +1,176 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:Weather.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Weather.Views.MainView"
+             x:DataType="vm:MainViewModel">
+	<Design.DataContext>
+		<!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+		<vm:MainViewModel />
+	</Design.DataContext>
+	<Grid Background="#3333FF">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+		</Grid.RowDefinitions>
+
+		<!-- Header -->
+		<Grid  Grid.Row="0">
+		<StackPanel Background="#3333FF">
+			<TextBlock Text="{Binding CurrentDataNow.CurrentDate}" FontSize="16" Foreground="#9999FF" Padding="20" TextAlignment="Center" />
+			<TextBlock Text="{Binding City}" FontSize="35" Foreground="White" Padding="20"/>
+			<StackPanel Orientation="Horizontal">
+				<TextBlock Text="{Binding  WeatherForecast[0].TemperatureCelsius}" FontSize="70" Foreground="White"/>
+				<TextBlock Text="°" FontSize="70" Foreground="White"/>
+			</StackPanel>
+		</StackPanel>
+		</Grid>
+
+
+
+		<Grid Grid.Row="1" HorizontalAlignment="Center">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="*" />
+			</Grid.ColumnDefinitions>
+				<StackPanel Grid.Column="0" Orientation="Vertical" Margin="10">
+					<TextBlock Text="Now" FontSize="14" Foreground="#9999FF"/>
+					<StackPanel Orientation="Horizontal">
+						<TextBlock Text="{Binding  WeatherForecast[0].TemperatureCelsius}" FontSize="14" Foreground="White"/>
+						<TextBlock Text="°" FontSize="18" Foreground="White"/>
+					</StackPanel>
+				</StackPanel>
+				<StackPanel Grid.Column="1" Orientation="Vertical" Margin="10">
+					<TextBlock Text="{Binding WeatherForecast[1].Time, StringFormat='{}{0:HH:mm}'}" FontSize="14" Foreground="#9999FF"/>
+					<StackPanel Orientation="Horizontal">
+						<TextBlock Text="{Binding  WeatherForecast[1].TemperatureCelsius}" FontSize="14" Foreground="White"/>
+						<TextBlock Text="°" FontSize="18" Foreground="White"/>
+					</StackPanel>
+				</StackPanel>
+				<StackPanel Grid.Column="2" Orientation="Vertical" Margin="10">
+					<TextBlock Text="{Binding WeatherForecast[2].Time, StringFormat='{}{0:HH:mm}'}" FontSize="14" Foreground="#9999FF"/>
+					<StackPanel Orientation="Horizontal">
+						<TextBlock Text="{Binding  WeatherForecast[2].TemperatureCelsius}" FontSize="14" Foreground="White"/>
+						<TextBlock Text="°" FontSize="18" Foreground="White"/>
+					</StackPanel>
+				</StackPanel>
+				<StackPanel Grid.Column="3" Orientation="Vertical" Margin="10">
+					<TextBlock Text="{Binding WeatherForecast[3].Time, StringFormat='{}{0:HH:mm}'}" FontSize="14" Foreground="#9999FF"/>
+					<StackPanel Orientation="Horizontal">
+						<TextBlock Text="{Binding  WeatherForecast[3].TemperatureCelsius}" FontSize="14" Foreground="White"/>
+						<TextBlock Text="°" FontSize="18" Foreground="White"/>
+					</StackPanel>
+				</StackPanel>
+				<StackPanel Grid.Column="4" Orientation="Vertical" Margin="10">
+					<TextBlock Text="{Binding WeatherForecast[4].Time, StringFormat='{}{0:HH:mm}'}" FontSize="14" Foreground="#9999FF"/>
+					<StackPanel Orientation="Horizontal">
+						<TextBlock Text="{Binding  WeatherForecast[4].TemperatureCelsius}" FontSize="14" Foreground="White"/>
+						<TextBlock Text="°" FontSize="18" Foreground="White"/>
+					</StackPanel>
+
+				</StackPanel>
+		</Grid>
+		<Grid Grid.Row="2" HorizontalAlignment="Center" Margin="1, 1, 1, 1">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="*" />
+				</Grid.ColumnDefinitions>
+
+				<StackPanel Grid.Column="0" Orientation="Vertical" Margin="5">
+					<TextBlock Text="Humidity" FontSize="16" Foreground="#9999FF"/>
+					<StackPanel Orientation="Horizontal">
+						<TextBlock Text="{Binding WeatherForecast[0].Humidity}" FontSize="16" Foreground="White"/>
+						<TextBlock Text="%" FontSize="16" Foreground="White"/>
+					</StackPanel>
+				</StackPanel>
+
+				<StackPanel Grid.Column="1" Orientation="Vertical" Margin="5">
+					<TextBlock Text="Wind" FontSize="16" Foreground="#9999FF"/>
+					<StackPanel Orientation="Horizontal">
+						<TextBlock Text="{Binding WeatherForecast[0].WindSpeed}" FontSize="16" Foreground="White"/>
+						<TextBlock Text="m/s" FontSize="16" Foreground="White"/>
+					</StackPanel>
+				</StackPanel>
+
+				<StackPanel Grid.Column="2" Orientation="Vertical" Margin="5">
+					<TextBlock Text="Pressure" FontSize="16" Foreground="#9999FF"/>
+					<StackPanel Orientation="Horizontal">
+						<TextBlock Text="{Binding WeatherForecast[0].Pressure}" FontSize="16" Foreground="White"/>
+						<TextBlock Text="hPs" FontSize="16" Foreground="White"/>
+					</StackPanel>
+				</StackPanel>
+
+				<StackPanel Grid.Column="3" Orientation="Vertical" Margin="5">
+					<TextBlock Text="UV" FontSize="16" Foreground="#9999FF"/>
+					<TextBlock Text="{Binding WeatherForecast[0].UV}" FontSize="16" Foreground="White"/>
+				</StackPanel>
+			
+		</Grid>
+
+		<!-- Weather Forecast -->
+		
+		<Grid Grid.Row="3" Background="#3399FF">
+			
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="*"/>
+				</Grid.ColumnDefinitions>
+
+				<StackPanel Grid.Column="0" Margin="15">
+					<TextBlock Text="{Binding WeatherForecast[3].Date, StringFormat='{}{0:ddd, d}'}" Margin="15" FontSize="18" Foreground="White"/>
+					<TextBlock Text="{Binding WeatherForecast[11].Date, StringFormat='{}{0:ddd, d}'}" Margin="15" FontSize="18" Foreground="White"/>
+					<TextBlock Text="{Binding WeatherForecast[19].Date, StringFormat='{}{0:ddd, d}'}" Margin="15" FontSize="18" Foreground="White"/>
+					<TextBlock Text="{Binding WeatherForecast[27].Date, StringFormat='{}{0:ddd, d}'}" Margin="15" FontSize="18" Foreground="White"/>
+					<TextBlock Text="{Binding WeatherForecast[35].Date, StringFormat='{}{0:ddd, d}'}" Margin="15" FontSize="18" Foreground="White"/>				</StackPanel>
+
+
+				<StackPanel Grid.Column="1" Margin="15">
+					<StackPanel Orientation="Horizontal" HorizontalAlignment="Right"  Margin="15" >
+						<TextBlock Text="{Binding WeatherForecast[3].TempMax}" FontSize="18"  Foreground="White"/>
+						<TextBlock Text="°  " FontSize="18" Foreground="White"/>
+						<TextBlock Text="{Binding WeatherForecast[3].TempMin}" FontSize="18"  Foreground="White"/>
+						<TextBlock Text="°" FontSize="18" Foreground="White"/>
+					</StackPanel>
+					<StackPanel Orientation="Horizontal" HorizontalAlignment="Right"  Margin="15" >
+						<TextBlock Text="{Binding WeatherForecast[11].TempMax}" FontSize="18"  Foreground="White"/>
+						<TextBlock Text="°  " FontSize="18" Foreground="White"/>
+						<TextBlock Text="{Binding WeatherForecast[11].TempMin}" FontSize="18"  Foreground="White"/>
+						<TextBlock Text="°" FontSize="18" Foreground="White"/>
+					</StackPanel>
+					<StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="15" >
+						<TextBlock Text="{Binding WeatherForecast[19].TempMax}" FontSize="18"  Foreground="White"/>
+						<TextBlock Text="°  " FontSize="18" Foreground="White"/>
+						<TextBlock Text="{Binding WeatherForecast[19].TempMin}" FontSize="18"  Foreground="White"/>
+						<TextBlock Text="°" FontSize="18" Foreground="White"/>
+					</StackPanel>
+					<StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="15" >
+						<TextBlock Text="{Binding WeatherForecast[27].TempMax}" FontSize="18"  Foreground="White"/>
+						<TextBlock Text="°  " FontSize="18" Foreground="White"/>
+						<TextBlock Text="{Binding WeatherForecast[27].TempMin}" FontSize="18"  Foreground="White"/>
+						<TextBlock Text="°" FontSize="18" Foreground="White"/>
+					</StackPanel>
+					<StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="15" >
+						<TextBlock Text="{Binding WeatherForecast[35].TempMax}" FontSize="18"  Foreground="White"/>
+						<TextBlock Text="°  " FontSize="18" Foreground="White"/>
+						<TextBlock Text="{Binding WeatherForecast[35].TempMin}" FontSize="18"  Foreground="White"/>
+						<TextBlock Text="°" FontSize="18" Foreground="White"/>
+					</StackPanel>
+				</StackPanel>
+
+				
+			
+		</Grid>
+	</Grid>
+
+
+</UserControl>
