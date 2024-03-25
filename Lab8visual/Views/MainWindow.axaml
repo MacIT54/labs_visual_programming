@@ -1,0 +1,21 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:Lab8visual.Views"
+        xmlns:vm="clr-namespace:Lab8visual.ViewModels;assembly=Lab8visual"
+        x:Class="Lab8visual.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel">
+    <Window.Resources>
+        <local:ViewModelLocator x:Key="Locator" />
+    </Window.Resources>
+    <Grid>
+        <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Horizontal">
+                <RadioButton Content="DataGrid" IsChecked="{Binding IsFlatViewSelected}" Checked="FlatViewRadioButton_Checked"/>
+                <RadioButton Content="TreeView" IsChecked="{Binding IsTreeViewSelected}" Checked="TreeViewRadioButton_Checked"/>
+            </StackPanel>
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <ContentControl Content="{Binding DisplayView}" Margin="10"/>
+            </ScrollViewer>
+        </StackPanel>
+    </Grid>
+</Window>
