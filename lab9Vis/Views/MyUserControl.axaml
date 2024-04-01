@@ -1,0 +1,12 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:viewModels="clr-namespace:lab9Vis.ViewModels;assembly=lab9Vis"
+             x:Class="lab9Vis.Views.MyUserControl"
+             x:DataType="viewModels:MainWindowViewModel"
+             Width="{Binding Width, RelativeSource={RelativeSource AncestorType=UserControl}}"
+             Height="{Binding Height, RelativeSource={RelativeSource AncestorType=UserControl}}">
+	<StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+		<Button Content="{Binding IsOpen}" Command="{Binding ToggleWindowSizeCommand}" />
+		<Slider Width="200" Minimum="0" Maximum="100" Value="{Binding SliderValue}" IsVisible="{Binding IsExpanded}" />
+	</StackPanel>
+</UserControl>

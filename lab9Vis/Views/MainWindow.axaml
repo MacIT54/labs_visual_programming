@@ -1,0 +1,17 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:viewModels="clr-namespace:lab9Vis.ViewModels;assembly=lab9Vis"
+        xmlns:views="clr-namespace:lab9Vis.Views;assembly=lab9Vis"
+        x:Class="lab9Vis.Views.MainWindow"
+        Title="lab9Vis"
+        Width="500"
+        Height="500"
+        x:DataType="viewModels:MainWindowViewModel">
+
+	<Window.DataContext>
+		<viewModels:MainWindowViewModel/>
+	</Window.DataContext>
+
+	<views:MyUserControl Width="100" Height="100"/>
+	<!--<views:MyUserControl Width="500" Height="500"/>-->
+</Window>
