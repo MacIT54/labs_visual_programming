@@ -1,0 +1,137 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="using:lab10Visual.Controls">
+
+	<Design.PreviewWith>
+		<controls:PalletteControl />
+	</Design.PreviewWith>
+
+	<Style Selector="Button.selected Border">
+		<Setter Property="BorderBrush" Value="Black"></Setter>
+	</Style>
+
+	<Style Selector="controls|PalletteControl">
+
+		<Style.Resources>
+			<controls:ColorToBrushConverter x:Key="ColorToBrushConverter"/>
+			<controls:RgbToBrushMultiConverter x:Key="RgbToBrushMultiConverter"/>
+		</Style.Resources>
+
+		<Setter Property="Template">
+			<ControlTemplate>
+				<Grid Background="White" ColumnDefinitions="0.5*, 0.5*">
+					<Grid Grid.Column="0" RowDefinitions="0.5*, 0.5*">
+						<Grid Grid.Row ="0">
+							<TextBlock Text="	  Primary Colors:" Margin="5,5,5,5"/>
+							<ItemsControl ItemsSource="{TemplateBinding ColorDictionary}">
+								<ItemsControl.ItemsPanel>
+									<ItemsPanelTemplate>
+										<WrapPanel Margin="10 20 10 10"/>
+									</ItemsPanelTemplate>
+								</ItemsControl.ItemsPanel>
+								
+								<ItemsControl.ItemTemplate>
+									<DataTemplate DataType="Color">
+										<Button Command="{Binding Path=$parent[Grid].DataContext.HandleColorSelect}"
+                                                CommandParameter="{Binding Path=$self}">
+											<Button.Styles>
+												<Style Selector="Button">
+													<Setter Property="Template">
+														<ControlTemplate>
+															<Border BorderThickness="2" Margin="5">
+																<Rectangle Fill="{Binding ., Converter={StaticResource ColorToBrushConverter}}"
+                                                                           Width="20" Height="20"
+																		   Stroke="Black" StrokeThickness="1"/>
+															</Border>
+														</ControlTemplate>
+													</Setter>
+												</Style>
+											</Button.Styles>
+										</Button>
+									</DataTemplate>
+								</ItemsControl.ItemTemplate>
+							</ItemsControl>
+							
+						</Grid>
+
+						<Grid Grid.Row="1">
+							<TextBlock Text="	  Complementary Colors:" Margin="5,30,0,5"/>
+							<ItemsControl ItemsSource="{TemplateBinding NewColorDictionary}">
+								<ItemsControl.ItemsPanel>
+									<ItemsPanelTemplate>
+										<WrapPanel Margin="10 50 10 10"/>
+									</ItemsPanelTemplate>
+								</ItemsControl.ItemsPanel>
+								<ItemsControl.ItemTemplate>
+									<DataTemplate DataType="Color">
+										<Button Command="{Binding Path=$parent[Grid].DataContext.HandleColorSelect}"
+                                                CommandParameter="{Binding Path=$self}">
+											<Button.Styles>
+												<Style Selector="Button">
+													<Setter Property="Template">
+														<ControlTemplate>
+															<Border BorderThickness="1" Margin="5">
+																<Rectangle Fill="{Binding ., Converter={StaticResource ColorToBrushConverter}}"
+                                                                           Width="20" Height="20"
+																		   
+																		Stroke="Black" StrokeThickness="1"/>
+															</Border>
+														</ControlTemplate>
+													</Setter>
+												</Style>
+											</Button.Styles>
+										</Button>
+									</DataTemplate>
+								</ItemsControl.ItemTemplate>
+							</ItemsControl>
+						</Grid>
+						
+					</Grid>
+
+					<Grid Grid.Column="1" RowDefinitions="0.6*, 0.3*, 0.1*">
+						<Grid Width="200" Margin="-50 0 0 0" Grid.Row="0" Height="200">
+							<ColorSpectrum Name="Spectrum">
+								<ColorSpectrum.Color>
+									<MultiBinding Converter="{StaticResource RgbToBrushMultiConverter}">
+										<Binding Path="Text" ElementName="Red"/>
+										<Binding Path="Text" ElementName="Green"/>
+										<Binding Path="Text" ElementName="Blue"/>
+										<Binding Path="Text" ElementName="Alpha"/>
+									</MultiBinding>
+								</ColorSpectrum.Color>
+							</ColorSpectrum>
+							<ColorSlider Color="Pink" Orientation="Vertical" Margin="235 0 0 0"  ColorComponent="Alpha"/>
+						</Grid>
+						
+						<Grid  Grid.Row="1" Margin="0 20 0 0" RowDefinitions="0.33*, 0.66*, 0.33*">
+							<StackPanel Grid.Row="0">
+								<TextBlock Text="Color/Fill" Margin="5,0,0,5" FontSize="12" />
+								<Rectangle Fill="{TemplateBinding CurrentColor, Converter={StaticResource ColorToBrushConverter}, Mode=TwoWay}" Margin="30 0 0 30 " Width="55" Height="40" HorizontalAlignment="Left" Stroke="Black" StrokeThickness="1"/>
+							</StackPanel>
+							<StackPanel Grid.Row="1" Orientation="Horizontal"  Margin="0,20,0,0">
+								<TextBlock FontSize="12" Text="Tint:"/>
+								<TextBox Name="Shade" Width="5" Height="5" Text="{Binding CurrentHsvColor.H, Mode=OneWay}"/>
+								<TextBlock FontSize="12" Text="Contrast:" Margin="3,0,0,0"/>
+								<TextBox Name="Contrast" Width="5" Height="5" Text="{Binding CurrentHsvColor.S,  Mode=OneWay}"/>
+								<TextBlock FontSize="12" Text="Brightness:" Margin="3,0,0,0"/>
+								<TextBox Name="Alpha" Width="5" Height="5" Text="{Binding Path=CurrentColor.A, Mode=TwoWay}"/>
+							</StackPanel>
+							<StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0,10,0,0">
+								<TextBlock FontSize="12" Text="Red:"/>
+								<TextBox x:Name="Red" Width="5" Height="5" Text="{Binding CurrentColor.R, Mode=TwoWay}"/>
+								<TextBlock FontSize="12" Text="Green:" Margin="3,0,0,0"/>
+								<TextBox x:Name="Green" Width="5" Height="5" Text="{Binding CurrentColor.G, Mode=TwoWay}"/>
+								<TextBlock FontSize="12" Text="Blue:" Margin="3,0,0,0"/>
+								<TextBox x:Name="Blue" Width="5" Height="5" Text="{Binding CurrentColor.B, Mode=TwoWay}"/>
+							</StackPanel>
+						</Grid>
+
+						<Grid Grid.Row="2">
+							<Button HorizontalAlignment="Stretch" Command="{Binding Path=AddColorTolab10VisualHandler}" Margin="10" HorizontalContentAlignment="Center" Content="Add to set"></Button>
+						</Grid>
+					</Grid>
+				</Grid>
+			</ControlTemplate>
+		</Setter>
+	</Style>
+</Styles>
