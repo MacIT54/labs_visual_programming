@@ -1,0 +1,14 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="clr-namespace:lab11Visual.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:views="clr-namespace:lab11Visual.Views"
+        mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="750"
+        x:Class="lab11Visual.Views.MainWindow"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="lab11Visual"
+		Width="400"
+		Height="700">
+	<views:MainView />
+</Window>
