@@ -1,0 +1,93 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:Homework_LogicalApp.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:cc="using:Homework_LogicalApp.Controls"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="Homework_LogicalApp.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="Homework_LogicalApp"
+	    Width="300"
+	    Height="500">
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+<ScrollViewer VerticalScrollBarVisibility="Auto">
+    <StackPanel VerticalAlignment="Center">
+		
+			
+		
+      <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+        <cc:AndControl TypeValve="ANSI" Height="100" Width="50" Stroke="Black" StrokeThickness="1" Margin="15"/>
+      </StackPanel>
+		
+	  <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+		   <cc:AndNotControl TypeValve="ANSI" Height="100" Width="50" Stroke="Black" StrokeThickness="1" Margin="15"/>
+      </StackPanel>	
+		<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+			<cc:BufferControl TypeValve="ANSI" Height="100" Width="50" Stroke="Black" StrokeThickness="1" Margin="15"/>
+      </StackPanel>	
+		<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+			 <cc:ExclusiveOrControl TypeValve="ANSI" Height="100" Width="50" Stroke="Black" StrokeThickness="1" Margin="15"/>
+      </StackPanel>	
+
+      <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+        <cc:ExclusiveOrNotControl TypeValve="ANSI" Height="100" Width="50" Stroke="Black" StrokeThickness="1" Margin="15"/>
+      </StackPanel>	
+		<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+			 <cc:InverterConrol TypeValve="ANSI" Height="100" Width="50" Stroke="Black" StrokeThickness="1" Margin="15"/>
+      </StackPanel>
+		<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+			 <cc:OrControl TypeValve="ANSI" Height="100" Width="50" Stroke="Black" StrokeThickness="1" Margin="15"/>
+      </StackPanel>
+		<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+			  <cc:OrNotControl TypeValve="ANSI" Height="100" Width="50" Stroke="Black" StrokeThickness="1" Margin="15"/>
+      </StackPanel>	
+		
+      <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+        <cc:AndControl TypeValve="GOST" Height="100" Width="50" Stroke="Black" StrokeThickness="1" Margin="15"/>
+      </StackPanel>
+		    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+        <cc:AndNotControl TypeValve="GOST" Height="100" Width="50" Stroke="Black" StrokeThickness="1" Margin="15"/>
+      </StackPanel>
+    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+        <cc:BufferControl TypeValve="GOST" Height="100" Width="50" Stroke="Black" StrokeThickness="1" Margin="15"/>
+      </StackPanel>
+		    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <cc:ExclusiveOrControl TypeValve="GOST" Height="100" Width="50" Stroke="Black" StrokeThickness="1" Margin="15"/>
+      </StackPanel>
+	
+		
+			
+		
+      <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+        <cc:ExclusiveOrNotControl TypeValve="GOST" Height="100" Width="50" Stroke="Black" StrokeThickness="1" Margin="15"/>
+      </StackPanel>
+	<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+		<cc:InverterConrol TypeValve="GOST" Height="100" Width="50" Stroke="Black" StrokeThickness="1" Margin="15"/>
+      </StackPanel>
+	<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+        <cc:OrControl TypeValve="GOST" Height="100" Width="50" Stroke="Black" StrokeThickness="1" Margin="15"/>
+      </StackPanel>
+	<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+         <cc:OrNotControl TypeValve="GOST" Height="100" Width="50" Stroke="Black" StrokeThickness="1" Margin="15"/>
+      </StackPanel>
+    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+        <cc:ExclusiveOrNotControl TypeValve="GOST" Height="100" Width="50" Stroke="Black" StrokeThickness="1" Margin="15"/>
+      </StackPanel>
+    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+        <cc:InverterConrol TypeValve="GOST" Height="100" Width="50" Stroke="Black" StrokeThickness="1" Margin="15"/>
+      </StackPanel>
+    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+         <cc:OrControl TypeValve="GOST" Height="100" Width="50" Stroke="Black" StrokeThickness="1" Margin="15"/>
+      </StackPanel>
+    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+        <cc:OrNotControl TypeValve="GOST" Height="100" Width="50" Stroke="Black" StrokeThickness="1" Margin="15"/>
+      </StackPanel>
+		
+    </StackPanel>
+	</ScrollViewer>
+</Window>
